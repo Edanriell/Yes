@@ -1,0 +1,107 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.StudentReviews {
+    padding-bottom: 18rem;
+    &-TitleWrapper {
+        margin-bottom: 7rem;
+    }
+    &-Title {
+        position: relative;
+    }
+    &-ReviewsSlider {
+        position: relative;
+    }
+}
+.ReviewsSlider {
+    position: relative;
+    &::before {
+        position: absolute;
+        top: 0;
+        right: 18.5rem;
+        @extend %blueDot;
+        z-index: 10;
+    }
+    &-Wrapper {
+        position: relative;
+    }
+    &-Slide {
+        display: grid;
+        grid-template-columns: 16.5rem 74.2rem 10.5rem;
+        grid-template-rows: repeat(4, auto);
+        column-gap: 6rem;
+        grid-template-areas: 
+            "authorImage authorName ."
+            "authorImage authorReviewText ."
+            ". socialButtons ."
+        ;
+    }
+    &-ReviewAuthorName {
+        grid-area: authorName;
+        font-family: var(--ff-normal-800);
+        font-size: var(--fs-18);
+        line-height: 2.8rem;
+        color: var(--clr-primary-400);
+        margin-bottom: 2.5rem;
+    }
+    &-ReviewText {
+        grid-area: authorReviewText;
+        @include flex(flex-start, flex-start, column);
+        font-family: var(--ff-normal-300);
+        font-size: var(--fs-18);
+        line-height: 2.8rem;
+        color: var(--clr-primary-400);
+    }
+    &-AuthorImage {
+        grid-area: authorImage;
+        width: 16.5rem;
+        height: 16.5rem;
+        object-fit: contain;
+    }
+    &-ProgressBar {
+        position: relative;
+        width: 100%;
+        background-color: var(--clr-neutral-500);
+        height: 0.7rem;
+        border-radius: 0.35rem;
+        margin-top: 8rem;
+        // &::before {
+        //     content: "";
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     background-color: var(--clr-accent-400);
+        //     box-shadow: 0px 4px 10px 0px rgba(245, 17, 44, 0.58);
+        //     width: 20rem;
+        //     height: 0.7rem;
+        //     border-radius: 0.35rem;
+        // }
+        &_fillColor_red {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--clr-accent-400);
+            box-shadow: 0px 4px 10px 0px rgba(245, 17, 44, 0.58);
+            width: 20rem;
+            height: 0.7rem;
+            border-radius: 0.35rem;
+            width: 100%;
+            height: 100%;
+            transform-origin: left top;
+            z-index: 10;
+        }
+    }
+    &-SocialLinksList{
+        grid-area: socialButtons;
+    }
+}
+.SocialLinksList{
+    margin-top: 1.5rem;
+    @include flex(flex-start, flex-start, row);
+    &-Item{
+        position: relative;
+    }
+    &-Link{
+        margin-right: 2rem;
+    }
+}

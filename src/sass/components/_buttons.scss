@@ -1,0 +1,83 @@
+@use "../abstracts/mixins" as *;
+
+.Button {
+    display: inline-block;
+    box-sizing: border-box;
+    @include flex(center, center, row);
+    &_color_red {
+        color: var(--clr-accent-400);
+    }
+    &_color_gradientRed {
+        background: linear-gradient(90deg, rgb(245,17,44) 0%, rgb(255,153,121) 100%);
+        box-shadow: 0px 10px 18px 0px rgba(246, 27, 60, 0.55);
+        position: relative;
+        line-height: 2.4rem;
+        span {
+            z-index: 2;
+        }
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, rgb(244,38,63) 0%, rgb(225,26,64) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 3.5rem;
+            width: 37rem;
+            height: 7rem;
+        }
+        &:hover::before {
+            opacity: 1;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(-90deg, rgb(245,17,44) 0%, rgb(228,0,43) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 3.5rem;
+            width: 37rem;
+            height: 7rem;
+        }
+        &:focus::after {
+            opacity: 1;
+        }
+    }
+    &_type_outline {
+        color: var(--clr-accent-400);
+        font-size: var(--fs-18);
+        font-family: var(--ff-normal-300);
+        border: 0.2rem solid var(--clr-accent-400);
+        border-radius: 1.9rem;
+        transition: background-color 0.6s ease, color 0.6s ease;
+        line-height: 2.4rem;
+        &:hover,
+        &:focus{
+            background-color: var(--clr-accent-400);
+            color: var(--clr-secondary-300);
+            transition: background-color 0.3s ease, color 0.2s ease 0.2s;
+        }
+    }
+    &_type_fill {
+        font-family: var(--ff-normal-800);
+        font-size: var(--fs-18);
+        color: var(--clr-secondary-300);
+        border: none;
+        border-radius: 3.5rem;
+    }
+    &_size_small {
+        height: 3.8rem;
+        width: 18rem;
+    }
+    &_size_big {
+        width: 37rem;
+        height: 7rem;
+    }
+}

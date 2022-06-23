@@ -1,0 +1,94 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.Hero {
+    position: relative;
+    margin-top: -10rem;
+    z-index: 2;
+    &::before {
+        content: "english yes";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: left;
+        color: var(--clr-primary-300);
+        font-family: var(--ff-normal-800);
+        font-size: var(--fs-370);
+        z-index: -1;
+        width: 190rem;
+        opacity: 6%;
+    }
+    &::after {
+        position: absolute;
+        top: 18rem;
+        right: 52rem;
+        @extend %blueDot;
+    }
+    &-Content {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+            "image content"
+        ;
+    }
+    &-TextContent {
+        grid-area: content;
+        @include flex(flex-start, center, column);
+        position: relative;
+        &::after {
+            position: absolute;
+            top: 61rem;
+            left: 37.5rem;
+            @extend %blueWave;
+        }
+    }
+    &-Title {
+        margin-top: 24rem;
+        font-family: var(--ff-normal-800);
+        color: var(--clr-primary-300);
+        text-transform: uppercase;
+        text-align: left;
+        font-size: var(--fs-45);
+        line-height: 1.2;
+        span {
+            display: block;
+            font-size: var(--fs-34);
+        }
+        &::after {
+            content: "";
+            display: inline-block;
+            @extend %redBar;
+            margin-bottom: 1.6rem;
+        }
+    }
+    &-Text {
+        font-family: var(--ff-normal-300);
+        font-size: var(--fs-18);
+        text-align: left;
+        color: var(--clr_primary-400);
+        width: 40rem;
+        margin-bottom: 10rem;
+        line-height: 2.4rem;
+    }
+    &-ImageWrapper {
+        grid-area: image;
+        width: 60.8rem;
+        height: 81.4rem;
+        position: relative;
+        user-select: none;
+        pointer-events: none;
+        &::before {
+            position: absolute;
+            top: 42rem;
+            left: -10rem;
+            @extend %blueOutlineCircle;
+        }
+    }
+    &-Image {
+        width: inherit;
+        height: inherit;
+        object-fit: contain;
+    }
+}

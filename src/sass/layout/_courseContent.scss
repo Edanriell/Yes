@@ -1,0 +1,126 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.CourseContent {
+    padding-bottom: 38rem;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -12rem;
+        left: 0;
+        width: 73.1rem;
+        height: 107.8rem;
+        background: url("../images/bigben.png") center no-repeat;
+    }
+    &::after {
+        position: absolute;
+        top: 14rem;
+        left: 10.5rem;
+        @extend %grayOutlineCircleLarge;
+        z-index: -1;
+    }
+    &-Content {
+        display: grid;
+        grid-template-columns: 36rem 1fr;
+        grid-template-rows: repeat(4, auto);
+        column-gap: 3rem;
+        grid-template-areas:
+            ". title"
+            ". redText"
+            ". normalText"
+            ". list"
+        ;
+        &::before {
+            position: absolute;
+            top: 7rem;
+            left: 16.5rem;
+            @extend %blueOutlineCircleBig;
+        }
+        &::after {
+            position: absolute;
+            top: 62rem;
+            left: 58.5rem;
+            @extend %blueWave;
+        }
+    }
+    &-TitleWrapper {
+        grid-area: title;
+        margin-bottom: 3rem;
+    }
+    &-Title {
+        width: 65rem;
+        &::before {
+            top: -13rem;
+            left: 50rem;
+        }
+    }
+    &-RedText {
+        grid-area: redText;
+        font-family: var(--ff-normal-300);
+        color: var(--clr-accent-400);
+        font-size: var(--fs-45);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    &-Text {
+        grid-area: normalText;
+        font-family: var(--ff-normal-300);
+        font-size: var(--fs-18);
+        color: var(--clr-primary-400);
+        line-height: 2.8rem;
+        width: 65rem;
+        text-align: left;
+        margin-bottom: 3rem;
+    }
+    &-CourseContentFullDescriptionList {
+        grid-area: list;
+    }
+}
+.CourseContentFullDescriptionList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: 7rem;
+    row-gap: 4rem;
+    &-Item {
+        @include flex(flex-start, flex-start, column);
+        &:nth-child(1) {
+            order: 1;
+        }
+        &:nth-child(2) {
+            order: 3;
+        }
+        &:nth-child(3) {
+            order: 5;
+        }
+        &:nth-child(4) {
+            order: 7;
+        }
+        &:nth-child(5) {
+            order: 2;
+        }
+        &:nth-child(6) {
+            order: 4;
+        }
+        &:nth-child(7) {
+            order: 6;
+        }
+        &:nth-child(8) {
+            order: 8;
+        }
+    }
+    &-ItemName {
+        font-family: var(--ff-normal-800);
+        font-size: var(--fs-18);
+        color: var(--clr-primary-400);
+        line-height: 2.8rem;
+        margin-bottom: 0.5rem;
+    }
+    &-ItemDescription {
+        font-family: var(--ff-normal-300);
+        font-size: var(--fs-18);
+        color: var(--clr-primary-400);
+        line-height: 2.8rem;
+    }
+}

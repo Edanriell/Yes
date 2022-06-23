@@ -1,0 +1,79 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.Authors {
+    padding-bottom: 21rem;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 28rem;
+        left: 0;
+        width: 151rem;
+        height: 0.2rem;
+        background: var(--clr-neutral-500);
+    }
+    &::after {
+        position: absolute;
+        top: 27rem;
+        left: 24rem;
+        @extend %blueDot;
+    }
+    &-Content {
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 25rem;
+            right: -21rem;
+            @extend %blueWaves;
+        }
+        &::after {
+            position: absolute;
+            top: -4rem;
+            right: -20rem;
+            @extend %grayOutlineCircleBig;
+            z-index: -1;
+        }
+    }
+    &-TitleWrapper {
+        position: relative;
+    }
+    &-Title {
+        margin-bottom: 4rem;
+    }
+    &-AuthorsList {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 3rem;
+    }
+}
+.AuthorsList {
+    position: relative;
+    &-Author{
+        @include flex(flex-start, flex-start, column);
+    }
+    &-AuthorName{
+        order: 2;
+        font-family: var(--ff-normal-800);
+        font-size: var(--fs-18);
+        color: var(--clr-primary-400);
+        line-height: 2.8rem;
+        margin-top: 3rem;
+    }
+    &-AboutAuthor {
+        order: 3;
+        font-family: var(--ff-normal-300);
+        font-size: var(--fs-14);
+        color: var(--clr-primary-400);
+        line-height: 2.4rem;
+        &:nth-child(2) {
+            margin-top: 1rem;
+        }
+    }
+    &-AuthorImage {
+        order: 1;
+        width: 36rem;
+        height: 28.6rem;
+        object-fit: contain;
+    }
+}

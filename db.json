@@ -1,0 +1,12 @@
+{
+  "phoneNumbers": [
+    {
+      "customer-phoneNumber": "12313",
+      "id": 1
+    },
+    {
+      "customer-phoneNumber": "+7 (324) 234-242-423",
+      "id": 2
+    }
+  ]
+}

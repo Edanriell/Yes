@@ -1,0 +1,9 @@
+@use "../abstracts/fonts" as *;
+
+:root {
+	@each $font-style, $font-family in $fonts {
+		@each $font-weight, $font-name in $font-family {
+			--ff-#{$font-style}-#{$font-weight}: #{$font-name};
+		}
+	}
+}

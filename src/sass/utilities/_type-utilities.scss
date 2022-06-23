@@ -1,0 +1,9 @@
+@use "../abstracts/types" as *;
+
+:root {
+	@each $screen-size, $font-size in $type-scale {
+		@each $size, $value in $font-size {
+			--fs-#{$size}: #{$value};
+		}
+	}
+}

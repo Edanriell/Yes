@@ -1,0 +1,26 @@
+@use "../abstracts/placeholders" as *;
+
+.SectionTitle {
+    font-family: var(--ff-normal-800);
+    font-size: var(--fs-45);
+    color: var(--clr-primary-300);
+    position: relative;
+    text-transform: uppercase;
+    &_decorativeElement_questionMark::before {
+        content: "?";
+        position: absolute;
+        top: -10rem;
+        left: 25rem;
+        font-family: var(--ff-normal-800);
+        font-size: var(--fs-300);
+        color: var(--clr-primary-300);
+        opacity: 9%;
+        line-height: 1.2;
+    }
+    &_decorativeElement_redBar::after {
+        content: "";
+        display: block;
+        @extend %redBar;
+        margin-top: 3rem;
+    }
+}

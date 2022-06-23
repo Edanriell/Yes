@@ -1,0 +1,5 @@
+@use "../abstracts/mixins" as *;
+
+.Container {
+	@include container(117rem, 1.5rem, 1.5rem);
+}

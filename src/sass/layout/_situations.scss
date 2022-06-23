@@ -1,0 +1,128 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.Situations {
+    padding-top: 30rem;
+    padding-bottom: 38rem;
+    position: relative;
+    &-TitleWrapper {
+        position: relative;
+    }
+    &-Title {
+        width: 36rem;
+        text-align: left;
+        line-height: 1.2;
+    }
+    &-SituationsList {
+        display: grid;
+    }
+    &::before {
+        position: absolute;
+        top: 76rem;
+        left: 58rem;
+        @extend %blueWave;
+        z-index: 2;
+    }
+    &::after {
+        position: absolute;
+        top: 134rem;
+        left: 30rem;
+        @extend %blueDot;
+    }
+}
+.SituationList {
+    grid-template-rows: repeat(4, auto);
+    &-Item {
+        column-gap: 3rem;
+        position: relative;
+        &:nth-child(1) {
+            justify-self: end;
+            @include flex(center, center, row);
+            margin-bottom: 8rem;
+            &::before {
+                content: attr(data-number);
+                position: absolute;
+                top: 6rem;
+                left: 30rem;
+                font-family: var(--ff-normal-800);
+                font-size: var(--fs-48);
+                color: var(--clr-primary-300);
+            }
+            &::after {
+                position: absolute;
+                top: 6rem;
+                left: 35rem;
+                @extend %redDot;
+            }
+        }
+        &:nth-child(2) {
+            justify-self: start;
+            @include flex(center, center, row-reverse);
+            &::before {
+                content: attr(data-number);
+                position: absolute;
+                top: 6rem;
+                left: 40.5rem;
+                font-family: var(--ff-normal-800);
+                font-size: var(--fs-48);
+                color: var(--clr-primary-300);
+            }
+            &::after {
+                position: absolute;
+                top: 6rem;
+                left: 46.5rem;
+                @extend %redDot;
+            }
+        }
+        &:nth-child(3) {
+            justify-self: end;
+            @include flex(center, center, row);
+            margin-top: -6rem;
+            &::before {
+                content: attr(data-number);
+                position: absolute;
+                top: 12rem;
+                left: 30rem;
+                font-family: var(--ff-normal-800);
+                font-size: var(--fs-48);
+                color: var(--clr-primary-300);
+            }
+            &::after {
+                position: absolute;
+                top: 12rem;
+                left: 36rem;
+                @extend %redDot;
+            }
+        }
+        &:nth-child(4) {
+            justify-self: start;
+            @include flex(center, center, row-reverse);
+        }
+    }
+    &-TextContent {
+        @include flex(flex-start, flex-start, column);
+    }
+    &-Text {
+        font-family: var(--ff-normal-300);
+        font-size: var(--fs-18);
+        color: var(--clr-primary-500);
+        text-align: left;
+        width: 30rem;
+        line-height: 2.8rem;
+    }
+    &-Image {
+        width: inherit;
+        height: inherit;
+        object-fit: contain;
+    }
+    &-BoldText {
+        font-family: var(--ff-normal-800);
+        font-size: var(--fs-48);
+        color: var(--clr-primary-300);
+        text-transform: lowercase;
+        line-height: 2.8rem;
+        margin-bottom: 2rem;
+        margin-left: -6rem;
+        z-index: 2;
+    }
+}

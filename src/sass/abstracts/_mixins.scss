@@ -1,0 +1,12 @@
+@mixin container($width, $padding-left, $padding-right) {
+	width: $width;
+	padding-left: $padding-left;
+	padding-right: $padding-right;
+	margin: 0 auto;
+}
+@mixin flex($align-items, $justify-content, $flex-direction) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-direction: $flex-direction;
+}

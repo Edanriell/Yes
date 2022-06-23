@@ -1,0 +1,86 @@
+@use "../abstracts/mixins" as *;
+
+.Footer {
+    background-color: var(--clr-neutral-300);
+    &-Content {
+        padding-top: 6rem;
+        padding-bottom: 10rem;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: 
+            "logotype socialButtons"
+            "logotypeText schoolAddress"
+        ;
+        align-items: center;
+    }
+    &-SocialButtonsList {
+        grid-area: socialButtons;
+        justify-self: end;
+    }
+    &-Text {
+        grid-area: logotypeText;
+        justify-self: start;
+        font-family: var(--ff-normal-300);
+        font-size: var(--fs-18);
+        line-height: 2.4rem;
+        color: var(--clr-primary-400);
+    }
+    &-LogotypeWrapper{
+        grid-area: logotype;
+        justify-self: start;
+    }
+    &-Contacts{
+        grid-area: schoolAddress;
+        justify-self: end;
+    }
+}
+.SocialButtonsList {
+    @include flex(center, center, row);
+    margin-bottom: 3rem;
+    &-Item {
+        margin-right: 2.2rem;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &-Item:nth-child(1) > a {
+        width: 4rem;
+        height: 2.3rem;
+        background: svg-load("../images/icons/vk.svg", fill="#cbcbcb") center no-repeat;
+        transition: all 0.6s ease;
+        &:hover {
+            background: svg-load("../images/icons/vk.svg", fill="#000") center no-repeat; 
+        }
+    }
+    &-Item:nth-child(2) > a {
+        width: 2.8rem;
+        height: 2.8rem;
+        background: svg-load("../images/icons/insta.svg", fill="#cbcbcb") center no-repeat;
+        transition: all 0.6s ease;
+        &:hover {
+            background: svg-load("../images/icons/insta.svg", fill="#000") center no-repeat;
+        }
+    }
+    &-Item:nth-child(3) > a {
+        width: 2.7rem;
+        height: 3.3rem;
+        background: svg-load("../images/icons/yt.svg", fill="#cbcbcb") center no-repeat;
+        transition: all 0.6s ease;
+        &:hover {
+            background: svg-load("../images/icons/yt.svg", fill="#000") center no-repeat;
+        }
+    }
+    &-Item:nth-child(4) > a {
+        width: 1.9rem;
+        height: 3.3rem;
+        background: svg-load("../images/icons/ok.svg", fill="#cbcbcb") center no-repeat;
+        transition: all 0.6s ease;
+        &:hover {
+            background: svg-load("../images/icons/ok.svg", fill="#000") center no-repeat;
+        }
+    }
+    &-Link{
+        display: block;
+    }
+}

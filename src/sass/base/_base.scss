@@ -1,0 +1,20 @@
+body {
+	font-family: var(--ff-normal-300);
+	font-size: var(--fs-18);
+	color: var(--clr-primary-300);
+	background-color: var(--clr-secondary-300);
+	font-weight: 300;
+	font-style: normal;
+}
+.VisuallyHidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
